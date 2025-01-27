@@ -2,44 +2,43 @@ package com.example.project;
 
 public class BookStore{
 
-    //requires at least 2 attributes Book[] books, User[] users (initialized to an empty array of 10 max users) 
+    //initalize variables
     private Book[] books = new Book[0];
     private User[] users = new User[10];
     //requires 1 empty constructor
-    public BookStore() {}
-    // public getUsers(){}
-    public User[] getUsers() {
+    public BookStore() {} //empty constructor
+    public User[] getUsers() { //get users
         return users;
     }
-    // public setUsers(){}
+    //update users
     public void setUsers(User[] newUsers) {
         users = newUsers;
     }
-    // public  getBooks(){}
+    //get books
     public Book[] getBooks() {
         return books;
     }
-    // public void addUser(User user){} 
+    //add a user by determining the first index with null and replace it with user
     public void addUser(User user) {
         for (int i = 0; i < users.length; i++) {
             if (users[i] == null) {
                 users[i] = user;
-                return;
+                return; //terminate loop
             }
         }
-        consolidateUsers();
+        consolidateUsers(); //consolidate users
     }
-    // public void removeUser(User user){}
+   //remove user by determining a match and replacing it with null
     public void removeUser(User user) {
         for (int i = 0; i < users.length; i++) {
             if (users[i] == user) {
                 users[i] = null;
-                consolidateUsers();
-                return;
+                consolidateUsers(); //consolidate
+                return; //terminate loop
             }
         }
     }
-    // public void consolidateUsers(){}
+    //places all elements together with no values of null in between
     public void consolidateUsers() {
     int idx = 0;
     for (int i = 0; i < users.length; i++) {
@@ -52,54 +51,44 @@ public class BookStore{
         }
     }
     }
-    // public void addBook(Book book){}
     public void addBook(Book book) {
-       Book[] newBooks = new Book[books.length+1];
+       Book[] newBooks = new Book[books.length+1]; //copy all elements of books to another list with an extra empty value at the end
        for (int i = 0; i < books.length; i++) {
         newBooks[i] = books[i];
        }
-       newBooks[books.length] = book;
-       books = newBooks;
+       newBooks[books.length] = book; //last value = book
+       books = newBooks; 
     }
     // public void insertBook(Book book, int index){}
     public void insertBook(Book book, int index) {
         Book[] newBooks = new Book[books.length + 1];
         for (int i = 0; i < books.length; i++) {
-            newBooks[i] = books[i];
+            newBooks[i] = books[i];// copy all elements of books to new ist
         }
         for (int i = index + 1; i < books.length + 1; i++) {
-            newBooks[i] = books[i - 1];
+            newBooks[i] = books[i - 1]; //increment index of elements by 1
         }
         newBooks[index] = book;
         books = newBooks;
     }
-
-    // public void removeBook(Book book){}
        public void removeBook(Book book) {
             int bookIndex = 0;
-            // a for loop is executed to find the index where the book to be removed is
             for (int i = 0; i < books.length; i++) {
                 if (books[i] == book) {
-                    bookIndex = i;
+                    bookIndex = i; //determine index of book
                 }
             }
-            // checking if the book to be removed has a quantity of one
-            if (books[bookIndex].getQuantity() == 1) {
-            // creating a new array with one less element than the original
+            if (books[bookIndex].getQuantity() == 1) { //check if quantity = 1
                 Book[] newBook = new Book[books.length - 1];
-            // copying each book before the index to the new array utilizing a for loop
                 for (int i = 0; i < bookIndex; i++) {
-                    newBook[i] = books[i];
+                    newBook[i] = books[i]; //copy values
                 }
-            // copying each book after the index utilizing a for loop
                 for (int i = bookIndex + 1; i < books.length; i++) {
-                    newBook[i - 1] = books[i];
+                    newBook[i - 1] = books[i]; //increment indices by 1
                 }
-            // setting the original array to the new array
                 books = newBook;
             } else {
-            // decreasing the books quantity by one because there are multiple
-                books[bookIndex].setQuantity(books[bookIndex].getQuantity() - 1);
+                books[bookIndex].setQuantity(books[bookIndex].getQuantity() - 1); //decrease quantity by 1 if quantity > 1
             }  
        }
     // public String bookStoreBookInfo(){} //you are not tested on this method but use it for debugging purposes

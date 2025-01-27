@@ -1,62 +1,60 @@
 package com.example.project;
 
-public class Book{
-    //requires 5 attributes String title, String author, int yearPublished, String isbn, int quantity
+public class Book{ //initialize variables
     private String title;
     private String author;
     private int yearPublished;
     private String isbn;
     private int quantity;
 
-    //requires 1 constructor with 5 arguments that intitialize the attribtues of the class.
-    public Book(String title, String author, int year, String isbn, int quantity) {
+    public Book(String title, String author, int year, String isbn, int quantity) { //constructor that initalizes the attributes
         this.title = title;
         this.author = author;
         yearPublished = year;
         this.isbn = isbn;
         this.quantity = quantity;
     }
-    // public  getTitle() {}
+    // get title
     public String getTitle() {
         return title;
     }
-    // public setTitle() {}
+    // update title
     public void setTitle(String newTitle) {
         title = newTitle;
     }
-    // public getAuthor() {}
+    // get author
     public String getAuthor() {
         return author;
     }
-    // public setAuthor() {}
+    // update author
     public void setAuthor(String newAuthor) {
         author = newAuthor;
     }
-    // public getYearPublished() {}
+    // get year published
     public int getYearPublished() {
         return yearPublished;
     }
-    // public setYearPublished() {}
+    // update year published
     public void setYearPublished(int newYear) {
         yearPublished = newYear;
     }
-    // public getIsbn() {}
+    // get isbn
     public String getIsbn() {
         return isbn;
     }
-    // public void setIsbn() {}
+    // update isb
     public void setIsbn(String newIsbn) {
         isbn = newIsbn;
     }
-    // public int getQuantity() {}
+    // get quantity
     public int getQuantity() {
         return quantity;
     }
-    // public void setQuantity() {}
+    // update quantity
     public void setQuantity(int newQuantity) {
         quantity = newQuantity;
     }
-    // public  bookInfo(){} //returns "Title: [], Author: [], Year: [], ISBN: [], Quantity: []"
+    // returns author, title, year, isbn, and quantity in a single string.
     public String bookInfo() {
         String str = "";
         str += "Title: " + title + ", ";

@@ -1,41 +1,34 @@
 package com.example.project;
 
 public class User{
-    //requires 3 private attributes String name, String Id, Book book that is initialized to empty
-    private String name;
+    private String name; //initialize variables
     private String Id;
     private Book[] books = new Book[5];
-    //requires 1 contructor with two parameters that will initialize the name and id
-    public User(String name, String Id) {
+
+    public User(String name, String Id) { //constructor that initializes the variables
         this.name = name;
         this.Id = Id;
     }
-    // public  getName() {}
+     //get name
     public String getName() {
         return name;
     }
-    // public  setName() {}
-    public void setName(String newName) {
+    public void setName(String newName) { //update name
         name = newName;  
     }
-    // public  getId() {}
-    public String getId() {
+    public String getId() { //get id
         return Id;
     }
-    // public void setId() {}
-    public void setId(String newId) {
+    public void setId(String newId) { //update id
         Id = newId;
     }
-    // public getBooks() {}
-    public Book[] getBooks() {
+    public Book[] getBooks() { //get books
         return books;
     }
-    // public setBooks() {}
-    public void setBooks(Book[] newBooks) {
+    public void setBooks(Book[] newBooks) { //update books
         books = newBooks;
     }
-    // public String bookListInfo(){} //returns a booklist for the user, if empty, output "empty"
-    public String bookListInfo() {
+    public String bookListInfo() { //prints book list and prints empty if element is null
         String info = "";
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null) {
@@ -46,8 +39,7 @@ public class User{
         }
         return info;
     }
-    // public String userInfo(){} //returns  "Name: []\nID: []\nBooks:\n[]"
-    public String userInfo() {
+    public String userInfo() { //get user info
         return "Name: " + name + "\nId: " + Id + "\nBooks: \n" + bookListInfo();
     }   
     public static void main(String[] args) {
